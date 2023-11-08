@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 @ComponentScan("br.com.meli.supermarket")
 @EntityScan("br.com.meli.supermarket")
-@EnableJpaRepositories("br.com.meli.supermarket.presenter.repository")
+@EnableJpaRepositories("br.com.meli.supermarket.infrastructure.repository")
 public class SupermarketApplication {
 
     public static void main(String[] args) {

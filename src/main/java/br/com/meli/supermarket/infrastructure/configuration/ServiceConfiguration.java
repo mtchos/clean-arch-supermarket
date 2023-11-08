@@ -11,7 +11,7 @@ import br.com.meli.supermarket.infrastructure.service.UserService;
 import br.com.meli.supermarket.presenter.configuration.PresenterConfiguration;
 
 @Configuration
-public class ControllerConfiguration {
+public class ServiceConfiguration {
 
     @Autowired
     private PresenterConfiguration presenterConfiguration;
@@ -32,7 +32,7 @@ public class ControllerConfiguration {
     }
 
     @Bean
-    public UserService userController() {
+    public UserService userService() {
         return new UserService(createUser(), findUser(), updateUser());
     }
 }
