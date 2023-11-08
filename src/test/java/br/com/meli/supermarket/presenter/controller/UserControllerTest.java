@@ -57,20 +57,20 @@ public class UserControllerTest {
 
     @Test
     public void testCreateUser() {
-        UserModel userCreated = userController.create(testUser);
-        UserModel userFromDatabase = userController.findById(userCreated.getId());
+        UserModel userCreated = userController.create(testUser).getBody();
+        UserModel userFromDatabase = userController.findById(userCreated.getId()).getBody();
         Assertions.assertEquals(userFromDatabase, userCreated);
     }
 
     @Test
     public void testUpdateUser() {
-        UserModel userCreated = userController.create(testUser);
-        UserModel userFromDatabase = userController.findById(userCreated.getId());
+        UserModel userCreated = userController.create(testUser).getBody();
+        UserModel userFromDatabase = userController.findById(userCreated.getId()).getBody();
         userFromDatabase.setFirstName("Mudou");
         userFromDatabase.setLastName("o Nome");
         userFromDatabase.setPrimaryEmail("email@bbc.co.uk");
         userController.update(userFromDatabase.getId(), userFromDatabase);
-        UserModel userUpdated = userController.findById(userFromDatabase.getId());
+        UserModel userUpdated = userController.findById(userFromDatabase.getId()).getBody();
         Assertions.assertEquals(userUpdated.getFirstName(), "Mudou");
         Assertions.assertEquals(userUpdated.getLastName(), "o Nome");
         Assertions.assertEquals(userUpdated.getPrimaryEmail(), "email@bbc.co.uk");
@@ -78,16 +78,16 @@ public class UserControllerTest {
 
     @Test
     public void testFindUserById() {
-        UserModel userCreated = userController.create(testUser);
-        UserModel userFromDatabase = userController.findById(userCreated.getId());
+        UserModel userCreated = userController.create(testUser).getBody();
+        UserModel userFromDatabase = userController.findById(userCreated.getId()).getBody();
         Assertions.assertEquals(userCreated, userFromDatabase);
     }
 
     @Test
     public void testFindAllUsers() {
-        UserModel userCreated = userController.create(testUser);
-        UserModel userCreatedToo = userController.create(testUserToo);
-        List<UserModel> listUsers = userController.findAll();
+        UserModel userCreated = userController.create(testUser).getBody();
+        UserModel userCreatedToo = userController.create(testUserToo).getBody();
+        List<UserModel> listUsers = userController.findAll().getBody();
         Assertions.assertTrue(listUsers.stream().anyMatch(user -> Objects.equals(user.getId(), userCreated.getId())));
         Assertions.assertTrue(listUsers.stream().anyMatch(user -> Objects.equals(user.getId(), userCreatedToo.getId())));
     }

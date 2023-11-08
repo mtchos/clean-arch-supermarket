@@ -1,6 +1,8 @@
 package br.com.meli.supermarket.presenter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import br.com.meli.supermarket.infrastructure.model.UserModel;
@@ -26,31 +29,34 @@ public class UserController {
     }
 
     @GetMapping("{accessor}")
-    public UserModel findByFilter(
+    public ResponseEntity<UserModel> findByFilter(
             @PathVariable
             final String accessor,
             @RequestParam(defaultValue = "false")
             final String filter) {
-        return switch (filter) {
-            case "email" -> this.findByEmail(accessor);
-            default -> this.findById(accessor);
-        };
+        if (Objects.equals(filter, "email")) {
+            return this.findByEmail(accessor);
+        } else {
+            return this.findById(accessor);
+        }
     }
 
-    public UserModel findById(
+    public ResponseEntity<UserModel> findById(
             @PathVariable
             final String id) {
-        return userService.findById(id);
+        UserModel userModel = userService.findById(id);
+        return ResponseEntity.ok(userModel);
     }
 
-    public UserModel findByEmail(
+    public ResponseEntity<UserModel> findByEmail(
             @RequestParam
             final String email) {
-        return userService.findByEmail(email);
+        UserModel userModel = userService.findByEmail(email);
+        return ResponseEntity.ok(userModel);
     }
 
     @GetMapping
-    public List<UserModel> findAll(
+    public ResponseEntity<List<UserModel>> findAll(
             @RequestParam(required = false)
             final Optional<String> name) {
         if (name.isPresent()) {
@@ -60,29 +66,34 @@ public class UserController {
         }
     }
 
-    public List<UserModel> findAll() {
-        return userService.findAll();
+    public ResponseEntity<List<UserModel>> findAll() {
+        List<UserModel> userModels = userService.findAll();
+        return ResponseEntity.ok(userModels);
+
     }
 
-    public List<UserModel> findAllByName(
+    public ResponseEntity<List<UserModel>> findAllByName(
             @RequestParam
             final String name) {
-        return userService.findAll(name);
+        List<UserModel> userModels = userService.findAll(name);
+        return ResponseEntity.ok(userModels);
     }
 
     @PostMapping
-    public UserModel create(
+    public ResponseEntity<UserModel> create(
             @RequestBody
             final UserModel userModel) {
-        return userService.create(userModel);
+        UserModel createdModel = userService.create(userModel);
+        return new ResponseEntity<>(createdModel, HttpStatus.CREATED);
     }
 
     @PutMapping
-    public UserModel update(
+    public ResponseEntity<UserModel> update(
             @RequestParam
             String id,
             @RequestBody
             UserModel userModel) {
-        return userService.update(id, userModel);
+        UserModel updatedModel = userService.update(id, userModel);
+        return new ResponseEntity<>(updatedModel, HttpStatus.OK);
     }
 }
