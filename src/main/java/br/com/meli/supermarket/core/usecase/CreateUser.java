@@ -4,7 +4,6 @@ import br.com.meli.supermarket.core.domain.entity.User;
 import br.com.meli.supermarket.core.usecase.contract.IdGenerator;
 import br.com.meli.supermarket.core.usecase.contract.PasswordEncoder;
 import br.com.meli.supermarket.core.usecase.contract.UserRepository;
-import br.com.meli.supermarket.core.usecase.exception.UserValidationException;
 import br.com.meli.supermarket.core.usecase.validation.UserValidator;
 import br.com.meli.supermarket.infrastructure.model.UserModel;
 
@@ -26,18 +25,9 @@ public final class CreateUser {
     }
 
     public User create(final User user) {
-        UserValidator.validateCreateUser(user);
-
-        User userFromRepository = null;
-        try {
-            userFromRepository = this.userRepository.findByEmail(user.getPrimaryEmail());
-        } catch (Exception ignored) {
-
-        }
-
-        if (userFromRepository != null) {
-            throw new UserValidationException("E-mail is already being used");
-        }
+        UserValidator.validateUserForCreate(user);
+        UserValidator.validateUserEmail(user, this.userRepository);
+        UserValidator.validateUserTaxId(user);
 
         String password = passwordEncoder.encode(user.getPrimaryEmail() + user.getPassword());
 
