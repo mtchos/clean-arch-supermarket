@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 import br.com.meli.supermarket.infrastructure.service.UserService;
 import br.com.meli.supermarket.infrastructure.model.UserModel;
 
-@RestController
+@RestController("users")
 public class UserController {
 
     private final UserService userService;
@@ -24,36 +25,59 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("{accessor}")
+    public UserModel findByFilter(
+            @PathVariable
+            final String accessor,
+            @RequestParam(defaultValue = "false")
+            final String filter) {
+        return switch (filter) {
+            case "email" -> this.findByEmail(accessor);
+            default -> this.findById(accessor);
+        };
+    }
+
     public UserModel findById(
-            @PathVariable final String id) {
+            @PathVariable
+            final String id) {
         return userService.findById(id);
     }
 
-    @GetMapping("/users/email")
     public UserModel findByEmail(
-            @RequestParam final String email) {
+            @RequestParam
+            final String email) {
         return userService.findByEmail(email);
     }
 
-    @GetMapping("/users")
+    @GetMapping
+    public List<UserModel> findAll(
+            @RequestParam(required = false)
+            final Optional<String> name) {
+        if (name.isPresent()) {
+            return this.findAllByName(name.get());
+        } else {
+            return this.findAll();
+        }
+    }
+
     public List<UserModel> findAll() {
         return userService.findAll();
     }
 
-    @GetMapping("/users/name")
     public List<UserModel> findAllByName(
-            @RequestParam final String name) {
+            @RequestParam
+            final String name) {
         return userService.findAll(name);
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public UserModel create(
-            @RequestBody final UserModel userModel) {
+            @RequestBody
+            final UserModel userModel) {
         return userService.create(userModel);
     }
 
-    @PutMapping("/users")
+    @PutMapping
     public UserModel update(
             @RequestParam
             String id,
