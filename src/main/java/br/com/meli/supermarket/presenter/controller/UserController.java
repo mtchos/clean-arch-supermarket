@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.meli.supermarket.infrastructure.service.UserService;
 import br.com.meli.supermarket.infrastructure.model.UserModel;
+import br.com.meli.supermarket.infrastructure.service.UserService;
 
 @RestController("users")
 public class UserController {

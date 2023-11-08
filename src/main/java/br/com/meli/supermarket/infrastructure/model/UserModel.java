@@ -39,6 +39,9 @@ public class UserModel implements User {
     @Column(name = "date_of_birth", columnDefinition = "DATE")
     private LocalDate dateOfBirth;
 
+    @Column(name = "tax_id")
+    private String taxId;
+
     @Column(name = "primary_email")
     private String primaryEmail;
 
@@ -56,6 +59,7 @@ public class UserModel implements User {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .dateOfBirth(user.getDateOfBirth())
+                .taxId(user.getTaxId())
                 .primaryEmail(user.getPrimaryEmail())
                 .secondaryEmail(user.getSecondaryEmail())
                 .build();
@@ -67,6 +71,7 @@ public class UserModel implements User {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .dateOfBirth(user.getDateOfBirth())
+                .taxId(user.getTaxId())
                 .primaryEmail(user.getPrimaryEmail())
                 .secondaryEmail(user.getSecondaryEmail())
                 .password(user.getPassword())
@@ -78,6 +83,7 @@ public class UserModel implements User {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .dateOfBirth(user.getDateOfBirth())
+                .taxId(user.getTaxId())
                 .primaryEmail(user.getPrimaryEmail())
                 .secondaryEmail(user.getSecondaryEmail())
                 .build();
@@ -91,6 +97,7 @@ public class UserModel implements User {
                 && Objects.equals(getFirstName(), userModel.getFirstName())
                 && Objects.equals(getLastName(), userModel.getLastName())
                 && Objects.equals(getDateOfBirth(), userModel.getDateOfBirth())
+                && Objects.equals(getTaxId(), userModel.getTaxId())
                 && Objects.equals(getPrimaryEmail(), userModel.getPrimaryEmail())
                 && Objects.equals(getSecondaryEmail(), userModel.getSecondaryEmail())
                 && Objects.equals(getPassword(), userModel.getPassword());
@@ -103,6 +110,7 @@ public class UserModel implements User {
                 getFirstName(),
                 getLastName(),
                 getDateOfBirth(),
+                getTaxId(),
                 getPrimaryEmail(),
                 getSecondaryEmail(),
                 getPassword());

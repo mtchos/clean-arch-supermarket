@@ -46,6 +46,7 @@ public final class CreateUser {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .dateOfBirth(user.getDateOfBirth())
+                .taxId(user.getTaxId())
                 .primaryEmail(user.getPrimaryEmail())
                 .secondaryEmail(user.getSecondaryEmail())
                 .password(passwordEncoder.encode(password))

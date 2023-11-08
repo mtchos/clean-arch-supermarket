@@ -12,6 +12,8 @@ public interface User {
 
     LocalDate getDateOfBirth();
 
+    String getTaxId();
+
     String getPrimaryEmail();
 
     String getSecondaryEmail();
