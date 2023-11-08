@@ -31,21 +31,21 @@ public class UserControllerTest {
     private UserController userController;
 
     public static UserModel testUser = UserModel.builder()
-            .withFirstName("Teste")
-            .withLastName("da Silva")
-            .withDateOfBirth(LocalDate.of(1970, 1, 1))
-            .withPrimaryEmail("test@gmail.com")
-            .withSecondaryEmail("test@icloud.com")
-            .withPassword(new BcryptEncoder().encode("Senha123"))
+            .firstName("Teste")
+            .lastName("da Silva")
+            .dateOfBirth(LocalDate.of(1970, 1, 1))
+            .primaryEmail("test@gmail.com")
+            .secondaryEmail("test@icloud.com")
+            .password(new BcryptEncoder().encode("Senha123"))
             .build();
 
     public static UserModel testUserToo = UserModel.builder()
-            .withFirstName("Testa")
-            .withLastName("de Sousa")
-            .withDateOfBirth(LocalDate.of(2000, 2, 3))
-            .withPrimaryEmail("testa@gmail.com")
-            .withSecondaryEmail("testa@icloud.com")
-            .withPassword(new BcryptEncoder().encode("Abc123"))
+            .firstName("Testa")
+            .lastName("de Sousa")
+            .dateOfBirth(LocalDate.of(2000, 2, 3))
+            .primaryEmail("testa@gmail.com")
+            .secondaryEmail("testa@icloud.com")
+            .password(new BcryptEncoder().encode("Abc123"))
             .build();
 
     @BeforeEach

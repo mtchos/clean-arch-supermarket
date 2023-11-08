@@ -10,9 +10,20 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "user_table")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserModel implements User {
 
     @Id
@@ -35,117 +46,44 @@ public class UserModel implements User {
     private String secondaryEmail;
 
     @JsonIgnore
+    @Setter(AccessLevel.NONE)
     private String password;
 
-    public UserModel() {
-
-    }
-
-    private UserModel(UserBuilder userBuilder) {
-        this.id = userBuilder.id;
-        this.firstName = userBuilder.firstName;
-        this.lastName = userBuilder.lastName;
-        this.dateOfBirth = userBuilder.dateOfBirth;
-        this.primaryEmail = userBuilder.primaryEmail;
-        this.secondaryEmail = userBuilder.secondaryEmail;
-        this.password = userBuilder.password;
-    }
-
-    public static UserBuilder builder() {
-        return new UserBuilder();
-    }
 
     public static UserModel forWeb(final User user) {
-        UserModel userModel = new UserModel();
-        userModel.setId(user.getId());
-        userModel.setFirstName(user.getFirstName());
-        userModel.setLastName(user.getLastName());
-        userModel.setDateOfBirth(user.getDateOfBirth());
-        userModel.setPrimaryEmail(user.getPrimaryEmail());
-        userModel.setSecondaryEmail(user.getSecondaryEmail());
-        return userModel;
+        return UserModel.builder()
+                .id(user.getId())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .dateOfBirth(user.getDateOfBirth())
+                .primaryEmail(user.getPrimaryEmail())
+                .secondaryEmail(user.getSecondaryEmail())
+                .build();
     }
 
     public static UserModel forCreate(final User user) {
-        UserModel userModel = new UserModel();
-        userModel.setId(user.getId());
-        userModel.setFirstName(user.getFirstName());
-        userModel.setLastName(user.getLastName());
-        userModel.setDateOfBirth(user.getDateOfBirth());
-        userModel.setPrimaryEmail(user.getPrimaryEmail());
-        userModel.setSecondaryEmail(user.getSecondaryEmail());
-        userModel.setPassword(user.getPassword());
-        return userModel;
+        return UserModel.builder()
+                .id(user.getId())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .dateOfBirth(user.getDateOfBirth())
+                .primaryEmail(user.getPrimaryEmail())
+                .secondaryEmail(user.getSecondaryEmail())
+                .password(user.getPassword())
+                .build();
     }
 
     public static UserModel forUpdate(final User user) {
-        UserModel userModel = new UserModel();
-        userModel.setFirstName(user.getFirstName());
-        userModel.setLastName(user.getLastName());
-        userModel.setDateOfBirth(user.getDateOfBirth());
-        userModel.setPrimaryEmail(user.getPrimaryEmail());
-        userModel.setSecondaryEmail(user.getSecondaryEmail());
-        return userModel;
+        return UserModel.builder()
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .dateOfBirth(user.getDateOfBirth())
+                .primaryEmail(user.getPrimaryEmail())
+                .secondaryEmail(user.getSecondaryEmail())
+                .build();
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getPrimaryEmail() {
-        return primaryEmail;
-    }
-
-    public void setPrimaryEmail(String primaryEmail) {
-        this.primaryEmail = primaryEmail;
-    }
-
-    public String getSecondaryEmail() {
-        return secondaryEmail;
-    }
-
-    public void setSecondaryEmail(String secondaryEmail) {
-        this.secondaryEmail = secondaryEmail;
-    }
-
-    @JsonIgnore
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
+       @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof UserModel userModel)) return false;
@@ -168,60 +106,5 @@ public class UserModel implements User {
                 getPrimaryEmail(),
                 getSecondaryEmail(),
                 getPassword());
-    }
-
-    public static class UserBuilder {
-        private String id;
-
-        private String firstName;
-
-        private String lastName;
-
-        private LocalDate dateOfBirth;
-
-        private String primaryEmail;
-
-        private String secondaryEmail;
-
-        private String password;
-
-        public UserModel build() {
-            return new UserModel(this);
-        }
-
-        public UserBuilder withId(String id) {
-            this.id = id;
-            return this;
-        }
-
-        public UserBuilder withFirstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public UserBuilder withLastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public UserBuilder withDateOfBirth(LocalDate dateOfBirth) {
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-        public UserBuilder withPrimaryEmail(String primaryEmail) {
-            this.primaryEmail = primaryEmail;
-            return this;
-        }
-
-        public UserBuilder withSecondaryEmail(String secondaryEmail) {
-            this.secondaryEmail = secondaryEmail;
-            return this;
-        }
-
-        public UserBuilder withPassword(String password) {
-            this.password = password;
-            return this;
-        }
     }
 }

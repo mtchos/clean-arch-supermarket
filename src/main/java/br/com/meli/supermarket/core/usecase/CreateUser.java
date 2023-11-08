@@ -42,13 +42,13 @@ public final class CreateUser {
         String password = passwordEncoder.encode(user.getPrimaryEmail() + user.getPassword());
 
         User newUser = UserModel.builder()
-                .withId(idGenerator.generate())
-                .withFirstName(user.getFirstName())
-                .withLastName(user.getLastName())
-                .withDateOfBirth(user.getDateOfBirth())
-                .withPrimaryEmail(user.getPrimaryEmail())
-                .withSecondaryEmail(user.getSecondaryEmail())
-                .withPassword(passwordEncoder.encode(password))
+                .id(idGenerator.generate())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .dateOfBirth(user.getDateOfBirth())
+                .primaryEmail(user.getPrimaryEmail())
+                .secondaryEmail(user.getSecondaryEmail())
+                .password(passwordEncoder.encode(password))
                 .build();
 
         return userRepository.create(newUser);
