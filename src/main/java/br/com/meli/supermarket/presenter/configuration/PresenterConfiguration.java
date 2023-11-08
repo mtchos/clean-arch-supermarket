@@ -10,7 +10,7 @@ import br.com.meli.supermarket.core.usecase.contract.IdGenerator;
 import br.com.meli.supermarket.core.usecase.contract.PasswordEncoder;
 import br.com.meli.supermarket.infrastructure.api.BcryptEncoder;
 import br.com.meli.supermarket.infrastructure.api.UuidGenerator;
-import br.com.meli.supermarket.presenter.repository.UserRepositoryImpl;
+import br.com.meli.supermarket.infrastructure.repository.UserRepositoryImpl;
 
 @Component
 public class PresenterConfiguration {

@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.presenter.service;
+package br.com.meli.supermarket.presenter.controller;
 
 
 import org.junit.jupiter.api.Assertions;
@@ -13,23 +13,22 @@ import java.util.List;
 import java.util.Objects;
 
 import br.com.meli.supermarket.infrastructure.api.BcryptEncoder;
-import br.com.meli.supermarket.infrastructure.api.UuidGenerator;
 import br.com.meli.supermarket.infrastructure.model.UserModel;
 import br.com.meli.supermarket.presenter.SupermarketApplication;
-import br.com.meli.supermarket.presenter.repository.UserRepositoryImpl;
+import br.com.meli.supermarket.infrastructure.repository.UserRepositoryImpl;
 
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.MOCK,
         classes = SupermarketApplication.class)
 @TestPropertySource(
         locations = "classpath:application.properties")
-public class UserServiceTest {
+public class UserControllerTest {
 
     @Autowired
     private UserRepositoryImpl userRepository;
 
     @Autowired
-    private UserService userService;
+    private UserController userController;
 
     public static UserModel testUser = UserModel.builder()
             .withFirstName("Teste")
@@ -56,20 +55,20 @@ public class UserServiceTest {
 
     @Test
     public void testCreateUser() {
-        UserModel userCreated = userService.create(testUser);
-        UserModel userFromDatabase = userService.findById(userCreated.getId());
+        UserModel userCreated = userController.create(testUser);
+        UserModel userFromDatabase = userController.findById(userCreated.getId());
         Assertions.assertEquals(userFromDatabase, userCreated);
     }
 
     @Test
     public void testUpdateUser() {
-        UserModel userCreated = userService.create(testUser);
-        UserModel userFromDatabase = userService.findById(userCreated.getId());
+        UserModel userCreated = userController.create(testUser);
+        UserModel userFromDatabase = userController.findById(userCreated.getId());
         userFromDatabase.setFirstName("Mudou");
         userFromDatabase.setLastName("o Nome");
         userFromDatabase.setPrimaryEmail("email@bbc.co.uk");
-        userService.update(userFromDatabase.getId(), userFromDatabase);
-        UserModel userUpdated = userService.findById(userFromDatabase.getId());
+        userController.update(userFromDatabase.getId(), userFromDatabase);
+        UserModel userUpdated = userController.findById(userFromDatabase.getId());
         Assertions.assertEquals(userUpdated.getFirstName(), "Mudou");
         Assertions.assertEquals(userUpdated.getLastName(), "o Nome");
         Assertions.assertEquals(userUpdated.getPrimaryEmail(), "email@bbc.co.uk");
@@ -77,16 +76,16 @@ public class UserServiceTest {
 
     @Test
     public void testFindUserById() {
-        UserModel userCreated = userService.create(testUser);
-        UserModel userFromDatabase = userService.findById(userCreated.getId());
+        UserModel userCreated = userController.create(testUser);
+        UserModel userFromDatabase = userController.findById(userCreated.getId());
         Assertions.assertEquals(userCreated, userFromDatabase);
     }
 
     @Test
     public void testFindAllUsers() {
-        UserModel userCreated = userService.create(testUser);
-        UserModel userCreatedToo = userService.create(testUserToo);
-        List<UserModel> listUsers = userService.findAll();
+        UserModel userCreated = userController.create(testUser);
+        UserModel userCreatedToo = userController.create(testUserToo);
+        List<UserModel> listUsers = userController.findAll();
         Assertions.assertTrue(listUsers.stream().anyMatch(user -> Objects.equals(user.getId(), userCreated.getId())));
         Assertions.assertTrue(listUsers.stream().anyMatch(user -> Objects.equals(user.getId(), userCreatedToo.getId())));
     }

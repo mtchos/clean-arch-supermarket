@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.presenter.repository;
+package br.com.meli.supermarket.infrastructure.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

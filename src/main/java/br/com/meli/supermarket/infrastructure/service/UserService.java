@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.infrastructure.controller;
+package br.com.meli.supermarket.infrastructure.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,7 +10,7 @@ import br.com.meli.supermarket.core.usecase.UpdateUser;
 import br.com.meli.supermarket.infrastructure.model.UserModel;
 
 
-public class UserController {
+public class UserService {
 
     private final CreateUser createUser;
 
@@ -18,7 +18,7 @@ public class UserController {
 
     private final UpdateUser updateUser;
 
-    public UserController(
+    public UserService(
             final CreateUser createUser,
             final FindUser findUser,
             final UpdateUser updateUser) {

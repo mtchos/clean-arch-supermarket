@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import br.com.meli.supermarket.core.usecase.CreateUser;
 import br.com.meli.supermarket.core.usecase.FindUser;
 import br.com.meli.supermarket.core.usecase.UpdateUser;
-import br.com.meli.supermarket.infrastructure.controller.UserController;
+import br.com.meli.supermarket.infrastructure.service.UserService;
 import br.com.meli.supermarket.presenter.configuration.PresenterConfiguration;
 
 @Configuration
@@ -32,7 +32,7 @@ public class ControllerConfiguration {
     }
 
     @Bean
-    public UserController userController() {
-        return new UserController(createUser(), findUser(), updateUser());
+    public UserService userController() {
+        return new UserService(createUser(), findUser(), updateUser());
     }
 }

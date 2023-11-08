@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.presenter.service;
+package br.com.meli.supermarket.presenter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,46 +11,46 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import br.com.meli.supermarket.infrastructure.controller.UserController;
+import br.com.meli.supermarket.infrastructure.service.UserService;
 import br.com.meli.supermarket.infrastructure.model.UserModel;
 
 @RestController
-public class UserService {
+public class UserController {
 
-    private final UserController userController;
+    private final UserService userService;
 
     @Autowired
-    public UserService(UserController userController) {
-        this.userController = userController;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/users/{id}")
     public UserModel findById(
             @PathVariable final String id) {
-        return userController.findById(id);
+        return userService.findById(id);
     }
 
     @GetMapping("/users/email")
     public UserModel findByEmail(
             @RequestParam final String email) {
-        return userController.findByEmail(email);
+        return userService.findByEmail(email);
     }
 
     @GetMapping("/users")
     public List<UserModel> findAll() {
-        return userController.findAll();
+        return userService.findAll();
     }
 
     @GetMapping("/users/name")
     public List<UserModel> findAllByName(
             @RequestParam final String name) {
-        return userController.findAll(name);
+        return userService.findAll(name);
     }
 
     @PostMapping("/users")
     public UserModel create(
             @RequestBody final UserModel userModel) {
-        return userController.create(userModel);
+        return userService.create(userModel);
     }
 
     @PutMapping("/users")
@@ -59,6 +59,6 @@ public class UserService {
             String id,
             @RequestBody
             UserModel userModel) {
-        return userController.update(id, userModel);
+        return userService.update(id, userModel);
     }
 }
