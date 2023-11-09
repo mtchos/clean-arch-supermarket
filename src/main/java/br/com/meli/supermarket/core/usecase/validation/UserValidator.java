@@ -48,7 +48,7 @@ public final class UserValidator {
 
         UserValidationException exception = new UserValidationException("Tax id is not valid");
 
-        List<Integer> taxIdIntegers = new ArrayList<>();
+        List<Integer> taxIdIntegers;
         try {
             taxIdIntegers = unverifiedTaxId.chars().mapToObj(Character::getNumericValue).collect(Collectors.toList());
         } catch (Exception ignored) {
