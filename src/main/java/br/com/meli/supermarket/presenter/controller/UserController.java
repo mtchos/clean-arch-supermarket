@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.presenter.controller;
+package br.com.archdemo.supermarket.presenter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import br.com.meli.supermarket.infrastructure.model.UserModel;
-import br.com.meli.supermarket.infrastructure.service.UserService;
+import br.com.archdemo.supermarket.infrastructure.model.UserModel;
+import br.com.archdemo.supermarket.infrastructure.service.UserService;
 
 @RestController("users")
 public class UserController {

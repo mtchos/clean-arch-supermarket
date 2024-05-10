@@ -1,10 +1,10 @@
-package br.com.meli.supermarket.infrastructure.api;
+package br.com.archdemo.supermarket.infrastructure.api;
 
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-import br.com.meli.supermarket.core.usecase.contract.IdGenerator;
+import br.com.archdemo.supermarket.core.usecase.contract.IdGenerator;
 
 @Component
 public class UuidGenerator implements IdGenerator {

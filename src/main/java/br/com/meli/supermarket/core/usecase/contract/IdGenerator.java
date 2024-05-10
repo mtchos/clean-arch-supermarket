@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.core.usecase.contract;
+package br.com.archdemo.supermarket.core.usecase.contract;
 
 public interface IdGenerator {
 

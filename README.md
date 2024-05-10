@@ -1,4 +1,4 @@
-# supermarket-meli
+# supermarket-archdemo
 
 
 [Spring Boot](http://projects.spring.io/spring-boot/) app.
@@ -13,14 +13,14 @@ For building and running the application you need:
 
 ## Running the application locally
 
-First navigate to: `br/com/meli/supermarket/infrastructure/db`
+First navigate to: `br/com/archdemo/supermarket/infrastructure/db`
 
 [Run](https://docs.docker.com/engine/reference/commandline/compose_up/) the docker container.
 ```shell
 docker compose up
 ```
 
-Now navigate to: `br/com/meli/supermarket/presenter`
+Now navigate to: `br/com/archdemo/supermarket/presenter`
 
 [Install](https://maven.apache.org/run.html) the maven application.
 ```shell

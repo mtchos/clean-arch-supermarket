@@ -1,16 +1,16 @@
-package br.com.meli.supermarket.presenter.configuration;
+package br.com.archdemo.supermarket.presenter.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.meli.supermarket.core.usecase.CreateUser;
-import br.com.meli.supermarket.core.usecase.FindUser;
-import br.com.meli.supermarket.core.usecase.UpdateUser;
-import br.com.meli.supermarket.core.usecase.contract.IdGenerator;
-import br.com.meli.supermarket.core.usecase.contract.PasswordEncoder;
-import br.com.meli.supermarket.infrastructure.api.BcryptEncoder;
-import br.com.meli.supermarket.infrastructure.api.UuidGenerator;
-import br.com.meli.supermarket.infrastructure.repository.UserRepositoryImpl;
+import br.com.archdemo.supermarket.core.usecase.CreateUser;
+import br.com.archdemo.supermarket.core.usecase.FindUser;
+import br.com.archdemo.supermarket.core.usecase.UpdateUser;
+import br.com.archdemo.supermarket.core.usecase.contract.IdGenerator;
+import br.com.archdemo.supermarket.core.usecase.contract.PasswordEncoder;
+import br.com.archdemo.supermarket.infrastructure.api.BcryptEncoder;
+import br.com.archdemo.supermarket.infrastructure.api.UuidGenerator;
+import br.com.archdemo.supermarket.infrastructure.repository.UserRepositoryImpl;
 
 @Component
 public class PresenterConfiguration {

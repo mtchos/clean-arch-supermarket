@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.infrastructure.exception;
+package br.com.archdemo.supermarket.infrastructure.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpServerErrorException;

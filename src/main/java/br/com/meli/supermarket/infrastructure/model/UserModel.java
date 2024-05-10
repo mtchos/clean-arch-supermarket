@@ -1,11 +1,11 @@
-package br.com.meli.supermarket.infrastructure.model;
+package br.com.archdemo.supermarket.infrastructure.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-import br.com.meli.supermarket.core.domain.entity.User;
+import br.com.archdemo.supermarket.core.domain.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.presenter.controller;
+package br.com.archdemo.supermarket.presenter.controller;
 
 
 import org.junit.jupiter.api.Assertions;
@@ -12,10 +12,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import br.com.meli.supermarket.infrastructure.api.BcryptEncoder;
-import br.com.meli.supermarket.infrastructure.model.UserModel;
-import br.com.meli.supermarket.presenter.SupermarketApplication;
-import br.com.meli.supermarket.infrastructure.repository.UserRepositoryImpl;
+import br.com.archdemo.supermarket.infrastructure.api.BcryptEncoder;
+import br.com.archdemo.supermarket.infrastructure.model.UserModel;
+import br.com.archdemo.supermarket.presenter.SupermarketApplication;
+import br.com.archdemo.supermarket.infrastructure.repository.UserRepositoryImpl;
 
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.MOCK,

@@ -1,13 +1,13 @@
-package br.com.meli.supermarket.core.usecase.validation;
+package br.com.archdemo.supermarket.core.usecase.validation;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import br.com.meli.supermarket.core.domain.entity.User;
-import br.com.meli.supermarket.core.usecase.contract.UserRepository;
-import br.com.meli.supermarket.core.usecase.exception.UserValidationException;
+import br.com.archdemo.supermarket.core.domain.entity.User;
+import br.com.archdemo.supermarket.core.usecase.contract.UserRepository;
+import br.com.archdemo.supermarket.core.usecase.exception.UserValidationException;
 
 public final class UserValidator {
 

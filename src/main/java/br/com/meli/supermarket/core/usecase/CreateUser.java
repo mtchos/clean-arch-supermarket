@@ -1,11 +1,11 @@
-package br.com.meli.supermarket.core.usecase;
+package br.com.archdemo.supermarket.core.usecase;
 
-import br.com.meli.supermarket.core.domain.entity.User;
-import br.com.meli.supermarket.core.usecase.contract.IdGenerator;
-import br.com.meli.supermarket.core.usecase.contract.PasswordEncoder;
-import br.com.meli.supermarket.core.usecase.contract.UserRepository;
-import br.com.meli.supermarket.core.usecase.validation.UserValidator;
-import br.com.meli.supermarket.infrastructure.model.UserModel;
+import br.com.archdemo.supermarket.core.domain.entity.User;
+import br.com.archdemo.supermarket.core.usecase.contract.IdGenerator;
+import br.com.archdemo.supermarket.core.usecase.contract.PasswordEncoder;
+import br.com.archdemo.supermarket.core.usecase.contract.UserRepository;
+import br.com.archdemo.supermarket.core.usecase.validation.UserValidator;
+import br.com.archdemo.supermarket.infrastructure.model.UserModel;
 
 public final class CreateUser {
 

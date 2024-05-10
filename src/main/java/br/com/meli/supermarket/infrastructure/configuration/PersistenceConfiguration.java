@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.infrastructure.configuration;
+package br.com.archdemo.supermarket.infrastructure.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;

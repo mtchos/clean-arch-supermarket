@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.presenter;
+package br.com.archdemo.supermarket.presenter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-@ComponentScan("br.com.meli.supermarket")
-@EntityScan("br.com.meli.supermarket")
-@EnableJpaRepositories("br.com.meli.supermarket.infrastructure.repository")
+@ComponentScan("br.com.archdemo.supermarket")
+@EntityScan("br.com.archdemo.supermarket")
+@EnableJpaRepositories("br.com.archdemo.supermarket.infrastructure.repository")
 public class SupermarketApplication {
 
     public static void main(String[] args) {

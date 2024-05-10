@@ -1,14 +1,14 @@
-package br.com.meli.supermarket.infrastructure.configuration;
+package br.com.archdemo.supermarket.infrastructure.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.meli.supermarket.core.usecase.CreateUser;
-import br.com.meli.supermarket.core.usecase.FindUser;
-import br.com.meli.supermarket.core.usecase.UpdateUser;
-import br.com.meli.supermarket.infrastructure.service.UserService;
-import br.com.meli.supermarket.presenter.configuration.PresenterConfiguration;
+import br.com.archdemo.supermarket.core.usecase.CreateUser;
+import br.com.archdemo.supermarket.core.usecase.FindUser;
+import br.com.archdemo.supermarket.core.usecase.UpdateUser;
+import br.com.archdemo.supermarket.infrastructure.service.UserService;
+import br.com.archdemo.supermarket.presenter.configuration.PresenterConfiguration;
 
 @Configuration
 public class ServiceConfiguration {

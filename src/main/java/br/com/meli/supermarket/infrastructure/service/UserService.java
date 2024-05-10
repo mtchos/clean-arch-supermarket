@@ -1,16 +1,16 @@
-package br.com.meli.supermarket.infrastructure.service;
+package br.com.archdemo.supermarket.infrastructure.service;
 
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.meli.supermarket.core.domain.entity.User;
-import br.com.meli.supermarket.core.usecase.CreateUser;
-import br.com.meli.supermarket.core.usecase.FindUser;
-import br.com.meli.supermarket.core.usecase.UpdateUser;
-import br.com.meli.supermarket.infrastructure.exception.HttpException;
-import br.com.meli.supermarket.infrastructure.model.UserModel;
+import br.com.archdemo.supermarket.core.domain.entity.User;
+import br.com.archdemo.supermarket.core.usecase.CreateUser;
+import br.com.archdemo.supermarket.core.usecase.FindUser;
+import br.com.archdemo.supermarket.core.usecase.UpdateUser;
+import br.com.archdemo.supermarket.infrastructure.exception.HttpException;
+import br.com.archdemo.supermarket.infrastructure.model.UserModel;
 
 
 public class UserService {

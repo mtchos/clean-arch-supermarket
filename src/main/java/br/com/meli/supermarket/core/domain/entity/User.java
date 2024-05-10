@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.core.domain.entity;
+package br.com.archdemo.supermarket.core.domain.entity;
 
 import java.time.LocalDate;
 

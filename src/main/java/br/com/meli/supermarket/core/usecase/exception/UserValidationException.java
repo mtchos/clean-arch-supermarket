@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.core.usecase.exception;
+package br.com.archdemo.supermarket.core.usecase.exception;
 
 public class UserValidationException extends RuntimeException {
 

@@ -1,8 +1,8 @@
-package br.com.meli.supermarket.core.usecase.contract;
+package br.com.archdemo.supermarket.core.usecase.contract;
 
 import java.util.List;
 
-import br.com.meli.supermarket.core.domain.entity.User;
+import br.com.archdemo.supermarket.core.domain.entity.User;
 
 public interface UserRepository {
 

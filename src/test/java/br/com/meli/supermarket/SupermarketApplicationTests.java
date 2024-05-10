@@ -1,4 +1,4 @@
-package br.com.meli.supermarket;
+package br.com.archdemo.supermarket;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

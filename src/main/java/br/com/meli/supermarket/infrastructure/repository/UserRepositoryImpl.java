@@ -1,4 +1,4 @@
-package br.com.meli.supermarket.infrastructure.repository;
+package br.com.archdemo.supermarket.infrastructure.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
-import br.com.meli.supermarket.core.domain.entity.User;
-import br.com.meli.supermarket.core.usecase.contract.UserRepository;
-import br.com.meli.supermarket.infrastructure.model.UserModel;
+import br.com.archdemo.supermarket.core.domain.entity.User;
+import br.com.archdemo.supermarket.core.usecase.contract.UserRepository;
+import br.com.archdemo.supermarket.infrastructure.model.UserModel;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {

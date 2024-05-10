@@ -1,7 +1,7 @@
-package br.com.meli.supermarket.core.usecase;
+package br.com.archdemo.supermarket.core.usecase;
 
-import br.com.meli.supermarket.core.domain.entity.User;
-import br.com.meli.supermarket.core.usecase.contract.UserRepository;
+import br.com.archdemo.supermarket.core.domain.entity.User;
+import br.com.archdemo.supermarket.core.usecase.contract.UserRepository;
 
 public final class UpdateUser {
 
